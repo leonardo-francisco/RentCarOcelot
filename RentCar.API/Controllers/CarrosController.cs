@@ -27,7 +27,7 @@ namespace RentCar.API.Controllers
         public async Task<ActionResult<Carro>> ObterCarroPorId(int id)
         {
             var carro = await _carroRepository.GetById(id);
-            if (carro == null) return NotFound();
+            if (carro == null) return NotFound("Carro não registrado");
             return Ok(carro);
         }     
 
@@ -41,7 +41,7 @@ namespace RentCar.API.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult<Carro>> AtualizarCarro(int id, Carro carro)
         {
-            if (id != carro.Id) return BadRequest();
+            if (id != carro.Id) return BadRequest("Id diferente do carro");
             await _carroRepository.Update(carro);
             return NoContent();
         }
