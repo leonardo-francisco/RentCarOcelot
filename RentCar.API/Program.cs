@@ -35,6 +35,8 @@ BsonClassMap.RegisterClassMap<Carro>(cm =>
 });
 BsonClassMap.RegisterClassMap<CarroBsonClassMap>();
 
+//BsonSerializer.RegisterSerializer(typeof(int), new Int32Serializer());
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

@@ -48,9 +48,8 @@ namespace RentCar.Infrastructure.Repository
 
         public async Task<IEnumerable<Carro>> GetAll()
         {
-            var carros = await _carroCollection.Find(s => true).ToListAsync();
-            var bsonCarros = carros.Select(c => ConvertToBson(c));
-            return (IEnumerable<Carro>)bsonCarros;
+            var filter = Builders<Carro>.Filter.Exists(x => x.SqlId);
+            return await _carroCollection.Find(filter).ToListAsync();          
         }
 
         public async Task<Carro> GetById(int id)
@@ -65,26 +64,6 @@ namespace RentCar.Infrastructure.Repository
             await _carroCollection.ReplaceOneAsync(c => c.Id == carro.Id, carro);
             return carro;
         }
-
-        private BsonDocument ConvertToBson(Carro carro)
-        {
-            // Converte o ID do carro para um tipo compatível com o MongoDB
-            var bsonId = BsonValue.Create(carro.Id);
-
-            // Cria um objeto BsonDocument para representar o carro
-            var bsonCarro = new BsonDocument
-            {
-                { "_id", bsonId },
-                { "nome", carro.Marca },
-                { "modelo", carro.Modelo },
-                { "marca", carro.Marca },                
-                { "ano", carro.Ano },
-                { "cor", carro.Cor },
-                { "precodiaria", carro.PrecoDiaria },
-                { "avariado", carro.Avariado }                
-            };
-
-            return bsonCarro;
-        }
+       
     }
 }

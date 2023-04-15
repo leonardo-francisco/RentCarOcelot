@@ -1,7 +1,4 @@
 {
-    //"GlobalConfiguration": {
-        
-    //},
     "Routes": [
         {
             "DownstreamPathTemplate": "/api/Carros",
@@ -18,30 +15,6 @@
             "DownstreamPort": 7270,
             "UpstreamPathTemplate": "/Carros/{id}",
             "UpstreamHttpMethod": [ "Get", "Put","Delete" ]
-        }
-        //{
-        //    "DownstreamPathTemplate": "/api/Carros",
-        //    "DownstreamScheme": "https",
-        //    "DownstreamHostAndPorts": [
-        //        {
-        //            "Host": "localhost",
-        //            "Port": 7270
-        //        }
-        //    ],
-        //    "UpstreamPathTemplate": "/gateway/Carros",
-        //    "UpstreamHttpMethod": [ "Get", "Post" ]
-        //},
-        //{
-        //    "DownstreamPathTemplate": "/api/Carros/{id}",
-        //    "DownstreamScheme": "https",
-        //    "DownstreamHostAndPorts": [
-        //        {
-        //            "Host": "localhost",
-        //            "Port": 7270
-        //        }
-        //    ],
-        //    "UpstreamPathTemplate": "/gateway/Carros/{id}",
-        //    "UpstreamHttpMethod": [ "Get", "Delete", "Put" ]
-        //}      
+        }             
     ]
 }
