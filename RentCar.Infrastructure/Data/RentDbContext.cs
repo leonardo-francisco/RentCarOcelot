@@ -16,5 +16,6 @@ namespace RentCar.Infrastructure.Data
         }
         public DbSet<Carro> Carros { get; set; }
         public DbSet<Reserva> Reservas { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
     }
 }

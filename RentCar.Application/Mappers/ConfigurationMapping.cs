@@ -15,6 +15,7 @@ namespace RentCar.Application.Mappers
         {
             CreateMap<Carro, CarroDto>().ReverseMap();
             CreateMap<Reserva, ReservaDto>().ReverseMap();
+            CreateMap<Usuario, UsuarioDto>().ReverseMap();
         }
     }
 }

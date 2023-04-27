@@ -47,6 +47,30 @@
             ],
             "UpstreamPathTemplate": "/gateway/reservas/{id}",
             "UpstreamHttpMethod": [ "Get", "Put", "Delete" ]
+        },
+        {
+            "DownstreamPathTemplate": "/api/Usuarios",
+            "DownstreamScheme": "https",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 7072
+                }
+            ],
+            "UpstreamPathTemplate": "/gateway/usuarios",
+            "UpstreamHttpMethod": [ "Get", "Post" ]
+        },
+        {
+            "DownstreamPathTemplate": "/api/Usuarios/{id}",
+            "DownstreamScheme": "https",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 7072
+                }
+            ],
+            "UpstreamPathTemplate": "/gateway/usuarios/{id}",
+            "UpstreamHttpMethod": [ "Get", "Put", "Delete" ]
         }
     ]
 }
