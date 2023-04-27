@@ -3,11 +3,27 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentCar.API", "RentCar.API\RentCar.API.csproj", "{39FDFA1D-8D53-49FD-AAD7-DD12719BF723}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RentCar.Domain", "RentCar.Domain\RentCar.Domain.csproj", "{FF0BC263-ABB8-4C31-9266-BF3991E9D72A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentCar.Domain", "RentCar.Domain\RentCar.Domain.csproj", "{FF0BC263-ABB8-4C31-9266-BF3991E9D72A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RentCar.Infrastructure", "RentCar.Infrastructure\RentCar.Infrastructure.csproj", "{21483AC5-E73E-466B-8ADA-C7E9AB2C63DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentCar.Infrastructure", "RentCar.Infrastructure\RentCar.Infrastructure.csproj", "{21483AC5-E73E-466B-8ADA-C7E9AB2C63DA}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{89087B96-78E9-4CD6-B495-F686F2393DA1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{290857F2-0D37-49F2-8E4C-B7CB93E4C154}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{CFDA14C1-7195-42C9-B02A-F14AF037FD58}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microservices", "Microservices", "{3B2DB0D3-3EDE-4230-8275-49AC5ABD8207}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RentCar.Reservas.Microservices", "RentCar.Reservas.Microservices\RentCar.Reservas.Microservices.csproj", "{F9D17D35-345E-4BE9-B326-0F8CDA0FFFCC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RentCar.Application", "RentCar.Application\RentCar.Application.csproj", "{89DC0AFB-E589-40D7-864D-B528BD695CC3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RentCar.Carros.Microservices", "RentCar.Carros.Microservices\RentCar.Carros.Microservices.csproj", "{5D40B2A4-05CC-404A-9844-291FF6EE7392}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RentCar.OcelotGateway", "RentCar.OcelotGateway\RentCar.OcelotGateway.csproj", "{6EA1357E-5A32-4051-8129-AE7BCEDB6BD9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentCar.Authentication.Microservices", "RentCar.Authentication.Microservices\RentCar.Authentication.Microservices.csproj", "{F7BF12A8-4432-40E6-8070-10BCA24BD159}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +31,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{39FDFA1D-8D53-49FD-AAD7-DD12719BF723}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{39FDFA1D-8D53-49FD-AAD7-DD12719BF723}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{39FDFA1D-8D53-49FD-AAD7-DD12719BF723}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{39FDFA1D-8D53-49FD-AAD7-DD12719BF723}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FF0BC263-ABB8-4C31-9266-BF3991E9D72A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FF0BC263-ABB8-4C31-9266-BF3991E9D72A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF0BC263-ABB8-4C31-9266-BF3991E9D72A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,9 +39,38 @@ Global
 		{21483AC5-E73E-466B-8ADA-C7E9AB2C63DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21483AC5-E73E-466B-8ADA-C7E9AB2C63DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21483AC5-E73E-466B-8ADA-C7E9AB2C63DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9D17D35-345E-4BE9-B326-0F8CDA0FFFCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9D17D35-345E-4BE9-B326-0F8CDA0FFFCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9D17D35-345E-4BE9-B326-0F8CDA0FFFCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9D17D35-345E-4BE9-B326-0F8CDA0FFFCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89DC0AFB-E589-40D7-864D-B528BD695CC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89DC0AFB-E589-40D7-864D-B528BD695CC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89DC0AFB-E589-40D7-864D-B528BD695CC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89DC0AFB-E589-40D7-864D-B528BD695CC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D40B2A4-05CC-404A-9844-291FF6EE7392}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D40B2A4-05CC-404A-9844-291FF6EE7392}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D40B2A4-05CC-404A-9844-291FF6EE7392}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D40B2A4-05CC-404A-9844-291FF6EE7392}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EA1357E-5A32-4051-8129-AE7BCEDB6BD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EA1357E-5A32-4051-8129-AE7BCEDB6BD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EA1357E-5A32-4051-8129-AE7BCEDB6BD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EA1357E-5A32-4051-8129-AE7BCEDB6BD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7BF12A8-4432-40E6-8070-10BCA24BD159}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7BF12A8-4432-40E6-8070-10BCA24BD159}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7BF12A8-4432-40E6-8070-10BCA24BD159}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7BF12A8-4432-40E6-8070-10BCA24BD159}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FF0BC263-ABB8-4C31-9266-BF3991E9D72A} = {89087B96-78E9-4CD6-B495-F686F2393DA1}
+		{21483AC5-E73E-466B-8ADA-C7E9AB2C63DA} = {290857F2-0D37-49F2-8E4C-B7CB93E4C154}
+		{F9D17D35-345E-4BE9-B326-0F8CDA0FFFCC} = {3B2DB0D3-3EDE-4230-8275-49AC5ABD8207}
+		{89DC0AFB-E589-40D7-864D-B528BD695CC3} = {CFDA14C1-7195-42C9-B02A-F14AF037FD58}
+		{5D40B2A4-05CC-404A-9844-291FF6EE7392} = {3B2DB0D3-3EDE-4230-8275-49AC5ABD8207}
+		{6EA1357E-5A32-4051-8129-AE7BCEDB6BD9} = {3B2DB0D3-3EDE-4230-8275-49AC5ABD8207}
+		{F7BF12A8-4432-40E6-8070-10BCA24BD159} = {3B2DB0D3-3EDE-4230-8275-49AC5ABD8207}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {344A4615-DB46-4629-8996-CAC2BF7F6203}

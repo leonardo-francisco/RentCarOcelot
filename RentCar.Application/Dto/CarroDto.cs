@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RentCar.Domain.Entities
+namespace RentCar.Application.Dto
 {
-    public class Carro
+    public class CarroDto
     {
         public int Id { get; set; }
         public string Nome { get; set; }
@@ -18,7 +18,6 @@ namespace RentCar.Domain.Entities
         public bool Disponivel { get; set; }
         public bool Avariado { get; set; }
 
-        // novo campo para armazenar o ID no MongoDb
         public int SqlId { get; set; }
     }
 }

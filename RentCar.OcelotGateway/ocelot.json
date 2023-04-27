@@ -1,0 +1,52 @@
+{
+    "Routes": [
+        {
+            "DownstreamPathTemplate": "/api/Carros",
+            "DownstreamScheme": "https",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 7069
+                }
+            ],
+            "UpstreamPathTemplate": "/gateway/carros",
+            "UpstreamHttpMethod": [ "Get", "Post" ]
+        },
+        {
+            "DownstreamPathTemplate": "/api/Carros/{id}",
+            "DownstreamScheme": "https",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 7069
+                }
+            ],
+            "UpstreamPathTemplate": "/gateway/carros/{id}",
+            "UpstreamHttpMethod": [ "Get", "Put", "Delete" ]
+        },
+        {
+            "DownstreamPathTemplate": "/api/Reservas",
+            "DownstreamScheme": "https",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 7002
+                }
+            ],
+            "UpstreamPathTemplate": "/gateway/reservas",
+            "UpstreamHttpMethod": [ "Get", "Post" ]
+        },
+        {
+            "DownstreamPathTemplate": "/api/Reservas/{id}",
+            "DownstreamScheme": "https",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 7002
+                }
+            ],
+            "UpstreamPathTemplate": "/gateway/reservas/{id}",
+            "UpstreamHttpMethod": [ "Get", "Put", "Delete" ]
+        }
+    ]
+}

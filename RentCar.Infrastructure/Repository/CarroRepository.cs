@@ -59,6 +59,7 @@ namespace RentCar.Infrastructure.Repository
 
         public async Task<Carro> Update(Carro carro)
         {
+            carro.SqlId = carro.Id;
             _context.Entry(carro).State = EntityState.Modified;
             await _context.SaveChangesAsync();
             await _carroCollection.ReplaceOneAsync(c => c.Id == carro.Id, carro);

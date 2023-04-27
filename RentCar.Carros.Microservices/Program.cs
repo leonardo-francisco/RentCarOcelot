@@ -1,13 +1,12 @@
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
-using MongoDB.Bson.Serialization;
-using Ocelot.DependencyInjection;
-using Ocelot.Middleware;
-using RentCar.Domain.Entities;
+using RentCar.Application.Dto;
+using RentCar.Application.Mappers;
+using RentCar.Application.Services.Carro;
+using RentCar.Application.Validators;
 using RentCar.Domain.Interfaces;
 using RentCar.Infrastructure.Data;
-using RentCar.Infrastructure.MapMongo;
 using RentCar.Infrastructure.Repository;
-using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,22 +19,18 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<RentDbContext>(options => options.UseSqlServer(connectionString));
 builder.Services.Configure<RentMongoSettings>(builder.Configuration.GetSection("ConnectionStrings"));
 
+//Adding Services
+builder.Services.AddScoped<ICarroService, CarroService>();
+
 //Adding Repositories
 builder.Services.AddScoped<ICarroRepository, CarroRepository>();
-builder.Services.AddScoped<IReservaRepository, ReservaRepository>();
 
+//Adding Auto Mapper Configuration
+builder.Services.AddAutoMapper(typeof(ConfigurationMapping));
 
-//Adding Ocelot
-builder.Configuration.AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
-builder.Services.AddOcelot(builder.Configuration);
-
-// registra o mapeamento das classes para o MongoDB
-BsonClassMap.RegisterClassMap<Carro>(cm =>
-{
-    cm.AutoMap();
-    cm.SetIgnoreExtraElements(true);
-});
-BsonClassMap.RegisterClassMap<CarroBsonClassMap>();
+//Adding Fluent Validation
+builder.Services.AddScoped<IValidator<CarroDto>, CarroValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining(typeof(CarroValidator));
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -51,9 +46,14 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseOcelot();
+
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseCors(x => x
+        .AllowAnyOrigin()
+        .AllowAnyMethod()
+        .AllowAnyHeader());
 
 app.Run();

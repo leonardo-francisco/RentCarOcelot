@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RentCar.Infrastructure.Data;
 
@@ -11,9 +12,10 @@ using RentCar.Infrastructure.Data;
 namespace RentCar.Infrastructure.Migrations
 {
     [DbContext(typeof(RentDbContext))]
-    partial class RentDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230419122923_SecondAlter")]
+    partial class SecondAlter
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -39,9 +41,6 @@ namespace RentCar.Infrastructure.Migrations
                     b.Property<string>("Cor")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("Disponivel")
-                        .HasColumnType("bit");
 
                     b.Property<string>("Marca")
                         .IsRequired()
