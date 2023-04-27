@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RentCar.Application.Dto;
 using RentCar.Application.Services.Reserva;
@@ -6,6 +8,7 @@ using RentCar.Application.Services.Reserva;
 namespace RentCar.Reservas.Microservices.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [ApiController]
     public class ReservasController : ControllerBase
     {

@@ -1,6 +1,8 @@
 ﻿using FluentValidation;
 using FluentValidation.AspNetCore;
 using FluentValidation.Results;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RentCar.Application.Dto;
@@ -10,6 +12,7 @@ using RentCar.Domain.Entities;
 namespace RentCar.Carros.Microservices.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [ApiController]
     public class CarrosController : ControllerBase
     {
